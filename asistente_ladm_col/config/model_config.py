@@ -4,7 +4,8 @@ from qgis.PyQt.QtCore import QCoreApplication
 
 from asistente_ladm_col.config.db_mapping_config import DBMappingConfig
 from asistente_ladm_col.config.general_config import (ILIVALIDATOR_ERRORS_CATALOG_PATH,
-                                                      IGAC_ERRORS_CATALOG_PATH)
+                                                      IGAC_ERRORS_CATALOG_PATH,
+                                                      DEFAULT_DATASET_NAME)
 from asistente_ladm_col.config.keys.common import (MODEL_ALIAS,
                                                    MODEL_IS_SUPPORTED,
                                                    MODEL_SUPPORTED_VERSION,
@@ -12,7 +13,10 @@ from asistente_ladm_col.config.keys.common import (MODEL_ALIAS,
                                                    MODEL_CHECKED_BY_DEFAULT,
                                                    MODEL_MAPPING,
                                                    MODEL_ILI2DB_PARAMETERS,
-                                                   MODEL_CATALOGS)
+                                                   MODEL_CATALOGS,
+                                                   MODEL_BASKET_INFO,
+                                                   MODEL_BASKET_TOPIC_NAME,
+                                                   MODEL_BASKET_TOPIC_NAME_PREFERRED)
 from asistente_ladm_col.config.keys.ili2db_keys import *
 from asistente_ladm_col.config.ladm_names import LADMNames
 
@@ -42,6 +46,14 @@ class ModelConfig:
                 MODEL_SUPPORTED_VERSION: "1.2",
                 MODEL_HIDDEN_BY_DEFAULT: False,
                 MODEL_CHECKED_BY_DEFAULT: True,
+                MODEL_ILI2DB_PARAMETERS: {
+                    ILI2DB_SCHEMAIMPORT: [(ILI2DB_CREATE_BASKET_COL_KEY, None)],
+                    ILI2DB_IMPORT: [(ILI2DB_DATASET, DEFAULT_DATASET_NAME)]
+                },
+                MODEL_BASKET_INFO: {
+                    MODEL_BASKET_TOPIC_NAME: "Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_2.Levantamiento_Catastral",
+                    MODEL_BASKET_TOPIC_NAME_PREFERRED: True  # Prefer this topic name over others in the same DB
+                },
                 MODEL_MAPPING: db_mapping_config.get_model_mapping(LADMNames.SURVEY_MODEL_KEY)
             },
             LADMNames.SUPPLIES_MODEL_KEY: {

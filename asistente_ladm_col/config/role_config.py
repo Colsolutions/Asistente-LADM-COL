@@ -307,7 +307,8 @@ def get_role_config():
                 QR_IGACR4001,
                 QR_IGACR4005
             ],
-            ROLE_GUI_CONFIG: {TEMPLATE_GUI: basic_role_gui}
+            ROLE_GUI_CONFIG: {TEMPLATE_GUI: basic_role_gui},
+            ROLE_NEEDS_AUTOMATIC_VALUE_FOR_BASKETS: True
         },
         SUPPLIES_PROVIDER_ROLE: {
             ROLE_NAME: QCoreApplication.translate("AsistenteLADMCOLPlugin", "Supplies Provider"),
@@ -435,6 +436,7 @@ def get_role_config():
             ROLE_MODELS: COMMON_ROLE_MODELS,  # advanced_role_models,
             ROLE_ACTIONS: [ALL_ACTIONS],
             ROLE_QUALITY_RULES: ALL_QUALITY_RULES,
-            ROLE_GUI_CONFIG: {TEMPLATE_GUI: advanced_role_gui}
+            ROLE_GUI_CONFIG: {TEMPLATE_GUI: advanced_role_gui},
+            ROLE_NEEDS_AUTOMATIC_VALUE_FOR_BASKETS: True
         }
     })
